@@ -1,3 +1,3 @@
 Queue Overflow
 ------------------------
-Web application similar to Stack Oveflow
+Web application similar to Stack Overflow
