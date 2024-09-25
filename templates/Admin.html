@@ -1,0 +1,23 @@
+{% extends "Adminbase.html" %}
+
+{%block page_content%}
+<div style="margin-left: 80px;margin-right: 80px;">
+        <h2 style="font-weight: bold;">Hello, {{current_user.firstname}}</h2><br>
+        
+        <h3 class="left">See all threads below :)</h3>
+        {% if threads %}
+                {% for thread in threads %}
+                    <div class="thread left">
+                        <h3><a href="{{ url_for('view_thread', thread_id=thread.id) }}">{{ thread.title }}</a></h3>
+                        <p>{{ thread.body[:150] }}</p>
+                        <p>By: {{ thread.author.firstname }} on {{ thread.date_posted.strftime('%Y-%m-%d') }}</p>
+                        <form method="POST" action="{{ url_for('delete_thread', thread_id=thread.id) }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                {% endfor %}
+        {% else %}
+                <p>There are no threads</p>
+        {% endif %}
+        </div>
+{%endblock%}

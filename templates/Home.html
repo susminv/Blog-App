@@ -1,0 +1,21 @@
+{% extends "Base.html" %}
+{%block page_content%}
+<div style="margin-left: 80px;margin-right: 80px;">
+<h2 style="font-weight: bold;">Hello, Stranger</h2><br>
+<h2 class="left">Threads</h2><br><br>
+{%if threads%}
+        {% for thread in threads %}
+            <div class="thread left">
+                <h3><a href="{{ url_for('view_thread', thread_id=thread.id) }}">{{ thread.title }}</a></h3>
+                <p>{{ thread.body[:150] }}</p>
+                <p>By: {{ thread.author.firstname }} on {{ thread.date_posted.strftime('%Y-%m-%d') }}</p>
+
+                <h4>Replies:</h4>
+                {% for reply in thread.replies[:3] %}
+                    <p>{{ reply.body }}</p>
+                    <p>By: {{ reply.author.firstname }} {{ reply.author.last_name }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+{%endif%}
+{%endblock%}

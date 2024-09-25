@@ -1,0 +1,192 @@
+/* Main.css */
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI";
+}
+
+.imag{
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px;
+}
+
+.navi{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    min-height: 16vh ;
+    /* background-color: #192d36; */
+    background-color: rgb(229, 223, 223);
+    align-items: center;
+    width: 100vw;
+    z-index: 1000;
+}
+
+.icon{
+    margin: 5px;
+    padding-left: 30px;
+}
+
+.button{
+    background : none;
+    border : none;
+    font-size: large;
+    font-weight: bold;
+    /* color: #fcff61; */
+    color: rgb(18, 160, 113);
+    margin-left: 25px;
+    text-decoration: none;
+}
+
+.button:hover{
+    color: black;
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+.title{
+    font-weight: bold;
+    color: rgb(18, 160, 113);
+    transition: all 0.3s ease;
+}
+
+.title:hover{
+    color: black;
+    transform: scale(1.05);
+}
+
+.foot{
+    position: relative;
+    bottom: 0;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    background-color: #29434e;
+    width: 100vw;
+    align-items: center;
+}
+.foot p{
+    color: silver;
+}
+
+.foot a{
+    text-decoration: none;
+    color: silver;
+
+}
+
+.foot a:hover{
+    color: white;
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+/* Home.css */
+
+
+
+
+.but:hover {
+    background: #d0d0d0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    text-decoration: underline;
+  }
+
+
+
+.grid-item {
+    background-color:rgba(245, 245, 245, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 4px 12px black;
+    padding: 20px;
+    padding-top: 5px;
+    text-align: center;
+    
+  }
+
+.grid-item:hover {
+    background: rgba(245, 245, 245, 0.6);
+    box-shadow: 0 8px 16px black;
+    transform: scale(1.05) ; 
+    cursor: pointer; 
+    font-family: "Segoe UI";
+    transition: all 0.3s ease;
+}
+
+
+.main{
+    background-image: url(../images/bg.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    min-height: 80vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.back{
+    position: fixed;
+    top: 0;
+    z-index: -10;
+}
+
+.bttn{
+    text-decoration: none;
+}
+
+.grid-container {
+
+    margin: 100px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+  }
+
+.item1{
+    margin-left: 75px;
+    margin-right: 75px;
+    min-height: 60vh;
+    grid-column: span 3;
+    grid-row: span 8;
+}
+
+.item1:hover{
+    transform: scale(1);
+}
+
+.form{
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: left;
+  }
+
+.left{
+    text-align: left;
+  }
+
+.thread, .reply {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+ }
+
+
+
+form input, form textarea {
+    width: 100%;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.box{
+    background-color: rgba(240, 234, 234, 0.8);
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 20px;
+}

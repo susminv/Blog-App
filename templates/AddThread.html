@@ -1,0 +1,25 @@
+{% if current_user.role == 'admin' %}
+{% extends "Adminbase.html" %}
+{% else %}
+{% extends "Userbase.html" %}
+{%endif%}
+{%block page_content%}
+<div style="margin-left: 80px;margin-right: 80px;">
+<h2 style="font-weight: bold;">Create a new thread...</h2><br>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    
+    <div class="mb-3 form"> 
+        <label for="title" class="form-label">{{ form.title.label }}</label>
+        {{ form.title(class="form-control", size=40) }}
+    </div>
+    
+    <div class="mb-3 form">
+        <label for="body" class="form-label">{{ form.body.label }}</label>
+        {{ form.body(class="form-control", cols=50, rows=10) }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+</div> 
+{%endblock%}

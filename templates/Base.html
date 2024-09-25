@@ -1,0 +1,51 @@
+{% extends "bootstrap/base.html" %}
+{% block head %}{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='css/style.css',external=True)}}">
+ {% endblock %}
+{% block title %}Queue Overflow{% endblock %}
+
+{% block navbar %}
+<nav class="navi">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" width="150px" class="icon">
+
+    <h1 class="title">
+        Queue Overflow
+    </h1>
+
+    <span style="margin-right: 40px;">
+        {% block navbuttons%}
+        <a href="/"><button type="button" class="button" id="Home">Home</button></a>
+        <a href="/login"><button type="button" class="button" id="About">Login/Sign Up</button></a>
+        {%endblock%}
+
+    </span>
+
+</nav> 
+{% endblock %}
+
+{% block content %}
+
+<main class="main">
+<div class="back">
+</div>
+        {% block gridout %}
+        {#we will fill contents from message.html#}
+        {% endblock  %}
+    <article class="grid-container">
+        <section class="grid-item item1">
+        {% block page_content %}
+        {#we will fill contents from message.html#}
+        {% endblock  %}
+        </section>
+    </article>
+        {% block belowgrid %}
+        {#we will fill contents from message.html#}
+        {% endblock  %}
+</main>
+
+    <footer class="foot">
+        <p>Phone : +071-3207743</p>
+        <p>copyright@queueoverflow2024</p>
+        <a href="mailto:susminvraj@gmail.com">Email : overflow@queue.com</a>
+    </footer>
+{% endblock %}

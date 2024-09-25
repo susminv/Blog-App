@@ -1,0 +1,34 @@
+{% extends "Userbase.html" %}
+{%block page_content%}
+<div style="margin-left: 80px;margin-right: 80px;">
+<h2 style="font-weight: bold;">Hello, {{current_user.firstname}}</h2><br>
+
+<h3 class="left">Here are your threads</h3>
+{% if threads1 %}
+        {% for thread in threads1 %}
+            <div class="thread left">
+                <h3><a href="{{ url_for('view_thread', thread_id=thread.id) }}">{{ thread.title }}</a></h3>
+                <p>{{ thread.body[:150] }}</p>
+                <form method="POST" action="{{ url_for('delete_thread', thread_id=thread.id) }}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        {% endfor %}
+{% else %}
+        <p>You haven't created any threads yet.</p>
+{% endif %}
+<br><br>
+<h3 class="left">Take a look at some threads from others </h3>
+{% if threads2 %}
+        {% for thread in threads2 %}
+            <div class="thread left">
+                <h3><a href="{{ url_for('view_thread', thread_id=thread.id) }}">{{ thread.title }}</a></h3>
+                <p>{{ thread.body[:150] }}</p>
+                <p>By: {{ thread.author.firstname }} on {{ thread.date_posted.strftime('%Y-%m-%d') }}</p>
+            </div>
+        {% endfor %}
+{% else %}
+        <p>No threads available :D</p>
+{% endif %}
+</div>
+{%endblock%}

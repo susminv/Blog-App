@@ -1,0 +1,40 @@
+{% if current_user.role == 'admin' %}
+{% extends "Adminbase.html" %}
+{% else %}
+{% extends "Userbase.html" %}
+{%endif%}
+{%block page_content%}
+<div style="margin-left: 80px;margin-right: 80px;" class="left">
+    <h1>{{ thread.title }}</h1>
+    <div class="box">
+    <p><strong>Posted by:</strong> {{ thread.author.firstname }} {{ thread.author.lastname }}</p>
+    <p>{{ thread.body }}</p>
+    <p><em>Posted on: {{ thread.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</em></p>
+    </div>
+    <h3>Comments</h3>
+    {% for reply in replies %}
+        <div class="reply">
+            <p><strong>{{ reply.author.firstname }}:</strong> {{ reply.body }}</p>
+            <p><em>Posted on: {{ reply.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</em></p>
+            {% if current_user.role == 'admin' %}
+                <form action="{{ url_for('delete_reply', reply_id=reply.id) }}" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete Comment</button>
+                </form>
+            {% endif %} 
+        </div> 
+        <hr>
+    {% endfor %}
+
+    <h3>Add a Comment</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.body.label(class="form-label") }}
+            {{ form.body(class="form-control", rows=3) }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{%endblock%}
